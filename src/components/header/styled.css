@@ -13,15 +13,15 @@ header{
     width: 30px;
     font-size: 20px;
     border-radius: 100%;
-    background-color: white;
-    color: #0071BC;
+    background-color: #0071BC;
+    color: white;
     margin-right: 10vw;
     cursor: pointer;
 }
 .returnButton{
     border: none;
-    background-color: transparent;
     color: white;
+    background-color: #0071BC;
     margin-right: 10vw;
     cursor: pointer;
 }

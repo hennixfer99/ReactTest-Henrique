@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Header from "../components/header/header";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./styled.css"
+import { faArrowCircleLeft, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const URL_API =  "http://localhost:5000/cameras"
 
@@ -35,7 +37,7 @@ function CameraForm({ navigation }: CameraFormProps){
 
     return(
     <>
-    <Header button = {<button className="returnButton" onClick={() => navigation.goBack()}>go Back</button>} />
+    <Header button = {<FontAwesomeIcon className="returnButton" icon={faArrowLeft} color = "red" size = '2x' onClick={() => navigation.goBack()}/>}/>
     <form onSubmit = {(e) => {e.preventDefault(), onSubmitFunction(), navigation.goBack()}}>
     <label>Nome da Câmera</label>
     <input value={title} type="text" onChange={(e) => setTitle(e.target.value)} />

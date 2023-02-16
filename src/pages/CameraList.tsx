@@ -4,7 +4,7 @@ import { StyleSheet, View } from 'react-native';
 import Header from '../components/header/header';
 import "./styled.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashCan, faPencil} from '@fortawesome/free-solid-svg-icons';
+import { faTrashCan, faPencil, faPlusCircle} from '@fortawesome/free-solid-svg-icons';
 import CameraPut from '../components/modal/modal';
 
 
@@ -76,7 +76,8 @@ export default function CameraList({ navigation }: CameraListProps) {
 
     
     return (<>
-            <Header button = {<button className="addButton" onClick={() => navigation.navigate("CameraForm")}>+</button>} />
+            <Header button = {<FontAwesomeIcon className="addButton" icon={faPlusCircle} color = "red" size = '1x' onClick={() => navigation.navigate("CameraForm")}/>} />
+            {/* <Header button = {<button className="addButton" onClick={() => navigation.navigate("CameraForm")}>+</button>} /> */}
              
         <View style={styles.container}>
             {modal === true ? (
