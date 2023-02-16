@@ -57,7 +57,7 @@ export default function CameraList({ navigation }: CameraListProps) {
             <li className='card' key={item.id}>
             <img src={item.image_url}/>
             <div>
-                <FontAwesomeIcon icon={faPencil} color = "orange" size = '1x' onClick={() => edit(item, true)}/> <p>{item.title}</p> <FontAwesomeIcon icon={faTrashCan} color = "orange" size = '1x' onClick={() => deleteApi(item.id)}/>
+                <FontAwesomeIcon className='buttons' icon={faPencil} color = "orange" size = '1x' onClick={() => edit(item, true)}/> <p>{item.title}</p> <FontAwesomeIcon icon={faTrashCan} className='buttons' color = "red" size = '1x' onClick={() => deleteApi(item.id)}/>
             </div>
             </li>
         )

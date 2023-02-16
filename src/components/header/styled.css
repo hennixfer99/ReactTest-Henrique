@@ -26,30 +26,3 @@ header{
     cursor: pointer;
 }
 
-.saveButton{
-    cursor: pointer;
-    height: 5vh;
-    background-color: #0071BC;
-    border-radius: 4px;
-    width: 30%;
-    margin: 0 auto;
-    color: white;
-
-}
-
-form{
-    display: flex;
-    flex-direction: column;
-    margin: 0 3%;
-}
-form input, select{
-    height: 5vh;
-}
-form label{
-    margin: 10px 0;
-}
-form div{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
