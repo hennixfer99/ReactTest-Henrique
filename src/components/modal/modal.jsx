@@ -1,42 +1,38 @@
 import { useState } from "react";
-import Header from "../components/header/header";
 import "./styled.css"
 
 const URL_API =  "http://localhost:5000/cameras"
 
-interface CameraFormProps {
-    navigation: Navigation;
-}
+function CameraPut({cam,exit}){
+    const [title, setTitle] = useState(cam.title)
+    const [external, setExternal] = useState(cam.external)
+    const [plan, setPlan] = useState(cam.plan)
 
-
-function CameraForm({ navigation }: CameraFormProps){
-
-    const [title, setTitle] = useState("")
-    const [external, setExternal] = useState(false)
-    const [plan, setPlan] = useState("1dia")
-    
     const onSubmitFunction = () => {
         
-            const newCam = {title, external, plan}
-            
+            const updateCam = {title, external, plan}
+             
             const requestOptions = {
-                method: 'POST',
+                method: 'PUT',
                 headers: {'Content-type': 'application/json'},
-                body: JSON.stringify (newCam)
+                body: JSON.stringify(updateCam)
             }
 
-            async function postApi(){
-                const response = await fetch(URL_API, requestOptions)
+            async function updateApi(){
+                const response = await fetch(`http://localhost:5000/cameras/${cam.id}`, requestOptions)
             }
-            postApi()
+            updateApi()
+            exit(false)
         }
-
-
 
     return(
     <>
-    <Header button = {<button className="returnButton" onClick={() => navigation.goBack()}>go Back</button>} />
-    <form onSubmit = {(e) => {e.preventDefault(), onSubmitFunction(), navigation.goBack()}}>
+    <div className="background">
+    <div>
+    <h1>Atualize suas informações</h1>
+    <button onClick={() => exit(false)}>X</button>
+    </div>
+    <form className = "modal"  onSubmit = {(e) => {e.preventDefault(), onSubmitFunction()}}>
     <label>Nome da Câmera</label>
     <input value={title} type="text" onChange={(e) => setTitle(e.target.value)} />
     <label>Plano  de gravação</label> 
@@ -50,10 +46,11 @@ function CameraForm({ navigation }: CameraFormProps){
     </div>
     <button className="saveButton" type="submit"  >Salvar</button>
     </form>
+    </div>
     </>
     )
 
 }
 
 
-export default CameraForm
+export default CameraPut

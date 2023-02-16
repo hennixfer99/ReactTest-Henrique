@@ -1,0 +1,35 @@
+.card{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 8px;
+    margin: 15px 15px;
+    
+}
+
+.card img{
+    max-width: 100%;
+    border-radius: 8px 8px 0 0;
+}
+
+.card div{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+ul{
+    margin: 0;
+    padding: 0;  
+}
+
+li{
+    list-style: none;
+}
+
+@media (max-width:700px) {
+    ul{
+        overflow-y: auto;
+        max-height: 500px;
+    }    
+}
