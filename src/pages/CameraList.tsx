@@ -23,7 +23,6 @@ interface Camera {
 
 export default function CameraList({ navigation }: CameraListProps) {
 
-    const [updatePage, setUpdatePage] = useState(false)
     const [text,setText] =  useState('')
     const [camera, setCamera] = useState < Camera[] > ([])
     const [modal, setModal] = useState(false)
@@ -72,12 +71,11 @@ export default function CameraList({ navigation }: CameraListProps) {
                 clearInterval(interval);
             }
         };
-    },[modal, updatePage])
+    },[modal])
 
     
     return (<>
             <Header button = {<FontAwesomeIcon className="addButton" icon={faPlusCircle} color = "red" size = '1x' onClick={() => navigation.navigate("CameraForm")}/>} />
-            {/* <Header button = {<button className="addButton" onClick={() => navigation.navigate("CameraForm")}>+</button>} /> */}
              
         <View style={styles.container}>
             {modal === true ? (
